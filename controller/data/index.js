@@ -28,5 +28,4 @@ export function getLists(req, res) {
           }
       });
   });
-
 }

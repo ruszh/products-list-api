@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import List from '../models/list.model';
+import List from '../../models/list.model';
 
 export async function save(req, res) {
     const list = await List.findOne({ listName: req.body.listName });
@@ -72,4 +72,23 @@ export async function getList(req, res) {
     return res.status(500).json({
         error: 'List is not found'
     });
+}
+
+
+export async function deleteList(req, res) {
+    try {
+        const result = await List.deleteOne({ _id: req.body.listId });
+        if(result.n) {
+            res.status(200).json({
+                success: 'list was deleted'
+            })
+        }
+        res.status(500).json({
+            error: 'list already deleted'
+        })
+    } catch (err) {
+        res.status(500).json({
+            error: err
+        })
+    }
 }

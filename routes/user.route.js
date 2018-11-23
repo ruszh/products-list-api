@@ -1,8 +1,8 @@
 import express from 'express';
 const router = express.Router();
 
-import { signin, signup, verifyUser } from '../authentication';
-import { getLists } from '../data';
+import { signin, signup, verifyUser } from '../controller/authentication';
+import { getLists } from '../controller/data';
 
 router.post('/signup', signup);
 router.post('/signin', signin);
