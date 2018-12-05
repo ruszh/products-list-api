@@ -92,3 +92,16 @@ export async function deleteList(req, res) {
         })
     }
 }
+
+export function updateList(req, res) {
+    try {
+        List.findByIdAndUpdate(req.body.listId, { $set: { listName: req.body.listName } });
+        res.status(200).json({
+            success: 'List name was changed'
+        })
+    } catch (err) {
+        res.status(500).json({
+            error: "Something go wrong"
+        })
+    }
+}
