@@ -5,7 +5,8 @@ const list = mongoose.Schema({
     userId: { type: String, required: true },
     listName: { type: String, required: true },
     list: { type: Object, required: true },
-    date: { type: Number, required: true }
+    date: { type: Number, required: true },
+    deletedAt: Number
 });
 
 const List = mongoose.model('List', list);
